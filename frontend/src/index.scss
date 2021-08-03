@@ -1,0 +1,324 @@
+:root {
+  --primaryWhite: #f3f3f3;
+  --primaryRed: #D52128;
+
+
+}
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+::selection{
+  background-color: rgba(#401bf6,0.9);
+
+}
+
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.bodyDisabled{
+
+  overflow: hidden;
+
+}
+
+.component__headline{
+  text-align: center;
+  color: var(--primaryWhite);
+  font-size: 2.1rem;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 2px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.emptySection{
+  position: absolute;
+
+  top: 40%;
+  transform: translate(-50%,-40%);
+  left: 50%;
+
+}
+#alertMessageBlockParent{
+  right: 3%;
+  top: 20%;
+  position: fixed;
+  transition: 0.4s;
+}
+
+#alertMessageBlockParent__element {
+  position: relative;
+  color: var(--primaryWhite);
+  background-color: #0f0c1d;
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  right: -100%;
+  transition: right 0.65s, opacity 1s 4s,top 0.65s;
+  margin: 1em 0;
+  animation: 4.5s cubic-bezier(0, 0, 0, 1.01)   forwards starting;
+  max-width: 300px;
+  @keyframes starting {
+    from{
+      right: -100%;
+      opacity: 1;
+    }
+    10%{
+      right: 3%;
+    }
+    80%{
+      right: 3%;
+      opacity: 1;
+    }
+    to{
+      right: 3%;
+      opacity: 0;
+    }
+  }
+
+}
+@media screen  and (max-width: 576px) {
+  #alertMessageBlockParent__element{
+    max-width: 100%;
+    text-align: center;
+    padding: 1.4em 2em;
+
+  }
+
+
+
+}
+
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Bold.woff2') format('woff2'), url('./fonts/Roboto-Bold.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+
+}
+
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Italic.woff2') format('woff2'), url('./fonts/Roboto-Italic.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Medium.woff2') format('woff2'), url('./fonts/Roboto-Medium.woff') format('woff');
+  font-weight: 500;
+  font-display: swap;
+
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Regular.woff2') format('woff2'), url('./fonts/Roboto-Regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+
+}
+
+body {
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+}
+@mixin scrollbars($size, $foreground-color,$handle-color,$handle-br,$handle-hover,$handle-active){
+  ::-webkit-scrollbar {
+    width: $size; /* width of the vertical scrollbar*/
+    height: $size; /* height of the horizontal scrollbar*/
+
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background:  $foreground-color;
+    //border: 1px solid red;
+
+  }
+
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $handle-color;
+    border-radius: $handle-br;
+    border: 1px solid $foreground-color;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background:  $handle-hover;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background-color: $handle-active;
+  }
+
+}
+
+
+@include scrollbars(15px,#585858,#232323,1px, #1f1d1d, #1a1818)
+
+
+/* Buttons */
+::-webkit-scrollbar-button:single-button {
+  background-color: rgb(64, 64, 64);
+
+  display: block;
+  background-size: 10px;
+  background-repeat: no-repeat;
+}
+
+
+
+/* Up */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  height: 12px;
+  width: 16px;
+  background-position: center 4px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(195, 195, 195)'><polygon points='50,00 0,50 100,50'/></svg>");
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(112, 112, 112)'><polygon points='50,00 0,50 100,50'/></svg>");
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement:active {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(128, 128, 128)'><polygon points='50,00 0,50 100,50'/></svg>");
+}
+
+/* Down */
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  height: 12px;
+  width: 16px;
+  background-position: center 2px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(195, 195, 195)'><polygon points='0,0 100,0 50,50'/></svg>");
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(112, 112, 112)'><polygon points='0,0 100,0 50,50'/></svg>");
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment:active {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(128, 128, 128)'><polygon points='0,0 100,0 50,50'/></svg>");
+}
+
+/* Left */
+::-webkit-scrollbar-button:single-button:horizontal:decrement {
+  height: 12px;
+  width: 12px;
+  background-position: 3px 3px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(195, 195, 195)'><polygon points='0,50 50,100 50,0'/></svg>");
+
+}
+
+::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(112, 112, 112)'><polygon points='0,50 50,100 50,0'/></svg>");
+}
+
+::-webkit-scrollbar-button:single-button:horizontal:decrement:active {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(128, 128, 128)'><polygon points='0,50 50,100 50,0'/></svg>");
+}
+
+/* Right */
+::-webkit-scrollbar-button:single-button:horizontal:increment {
+  height: 12px;
+  width: 12px;
+  background-position: 3px 3px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(195, 195, 195)'><polygon points='0,0 0,100 50,50'/></svg>");
+}
+
+::-webkit-scrollbar-button:single-button:horizontal:increment:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(112, 112, 112)'><polygon points='0,0 0,100 50,50'/></svg>");
+}
+
+::-webkit-scrollbar-button:single-button:horizontal:increment:active {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(128, 128, 128)'><polygon points='0,0 0,100 50,50'/></svg>");
+}
+
+
+@media screen and (max-width: 576px) {
+  #alertMessageBlockParent {
+    left: 0;
+    top: 0;
+    position: fixed;
+    transition: 0.4s;
+    width: 100%;
+  }
+  #alertMessageBlock {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+
+  }
+  @keyframes starting {
+    from{
+      right: -100%;
+      opacity: 1;
+    }
+    10%{
+      right: 0;
+    }
+    80%{
+      right: 0;
+      opacity: 1;
+    }
+    to{
+      right: 0;
+      opacity: 0;
+    }
+  }
+}
+
+
